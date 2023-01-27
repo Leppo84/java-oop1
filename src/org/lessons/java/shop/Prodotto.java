@@ -27,7 +27,7 @@ public class Prodotto {
 	
 //prodPreice e prodTax erano float, ma l'IDE mi ha chiesto di cambiare su double inserita la tassazione di default
 	
-	public Prodotto(String prodName, String prodDescr, float prodPrice) {
+	public Prodotto(String prodName, String prodDescr, double prodPrice) {
 		super();
 		Random r=new Random();
 		this.prodCode = r.nextInt(99999);
@@ -35,8 +35,24 @@ public class Prodotto {
 		this.prodDescr = prodDescr;
 		this.prodPrice = prodPrice;
 		this.prodTax = 0.21;
+		
+		}
+	
+	String getName() {
+		return prodName;
 	}
 	
+	String getCode() {
+		String code = prodName+"-"+prodCode;
+		return code;
+	}
 	
+	double getBasePrice() {
+		return prodPrice;
+	}
+	
+	double getTaxedPrice() {
+		return prodPrice*(1+prodTax);
+	}
 	
 }
